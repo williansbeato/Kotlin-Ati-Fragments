@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.example.fragments.fragments.fragment_home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/navigateToImages"
+            app:destination="@id/fragment_images" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_images"
+        android:name="com.example.fragments.fragments.fragment_images"
+        android:label="fragment_images"
+        tools:layout="@layout/fragment_images" >
+        <action
+            android:id="@+id/navigateToHome"
+            app:destination="@id/fragment_home" />
+        <action
+            android:id="@+id/navigateToShowImage"
+            app:destination="@id/showImageFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/showImageFragment"
+        android:name="com.example.fragments.fragments.ShowImageFragment"
+        android:label="fragment_show_image"
+        tools:layout="@layout/fragment_show_image" >
+        <argument
+            android:name="imageId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
